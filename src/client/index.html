@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FZDash - Claude Code Dashboard for FazAI-NG" />
+  <meta name="theme-color" content="#0ea5e9" />
+  
+  <title>FZDash - Claude Code Dashboard</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  
+  <style>
+    /* Initial loading state */
+    html, body, #root {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+    }
+    
+    /* Loading spinner */
+    .initial-loader {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0f172a;
+      z-index: 9999;
+    }
+    
+    .initial-loader svg {
+      width: 64px;
+      height: 64px;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .initial-loader-text {
+      position: absolute;
+      bottom: 40%;
+      font-size: 1.25rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <!-- Initial loader while JS loads -->
+    <div class="initial-loader">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" stroke="#1e293b" />
+        <path d="M12 2a10 10 0 0 1 10 10" stroke="#0ea5e9" stroke-linecap="round" />
+      </svg>
+      <span class="initial-loader-text">Loading FZDash...</span>
+    </div>
+  </div>
+  
+  <script type="module" src="./main.tsx"></script>
+</body>
+</html>
